@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>xay dung lop mo ta hinh chu nhat</title>
+</head>
+<body>
+<canvas id="myCanvas" width="600" height="500" style="border: 2px solid black"></canvas>
+<div id="result1"></div>
+<div id="result2"></div>
+    <script>
+        function PainRectangle(width,height) {
+            this.height = height;
+            this.width = width;
+
+            this.acreace = function () {
+                return (this.height * this.width);
+            };
+            this.perimeter = function () {
+                return (2 * (this.height + this.width));
+            };
+            this.rectangle = function () {
+                let ctx=document.getElementById("myCanvas").getContext("2d");
+                ctx.strokeRect(100,100,this.width,this.height);
+            };
+        }
+
+        let width = parseInt(prompt("nhap chieu rong"));
+        let height = parseInt(prompt("nhap chieu dai"));
+        let rect =new PainRectangle(width,height);
+        rect.rectangle();
+        let acr = rect.acreace();
+        document.getElementById("result1").innerHTML= "Diện tích hình chữ nhật là :" + acr ;
+        let per =rect.perimeter();
+        document.getElementById("result2").innerHTML= "Chu vi hình chữ nhật là :"  +per;
+
+    </script>
+</body>
+</html>
